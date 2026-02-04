@@ -30,7 +30,7 @@
     </script>
 
     <style>
-        body { background-color: #ffffff; margin: 0; overflow-x: hidden; overflow-y: auto; } /* Body background changed to pure white to match slide fade */
+        body { background-color: #ffffff; margin: 0; overflow-x: hidden; overflow-y: auto; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
@@ -104,9 +104,38 @@
         .price-container-grid { margin-bottom: 12px; display: flex; flex-direction: column; align-items: flex-start; }
         .original-price-grid { font-size: 0.65rem; color: var(--text-secondary); text-decoration: line-through; font-weight: 500; margin-bottom: 2px; }
         .discount-price-grid { font-size: 0.9rem; color: var(--price-color); font-weight: 800; }
+        
         .btn-minimal { display: block; width: 100%; padding: 8px 0; text-align: center; text-decoration: none; font-size: 0.75rem; font-weight: 700; border-radius: 12px; transition: all 0.2s ease; background-color: var(--btn-color); color: #fff0f5; border: none; box-shadow: 0 4px 0 var(--btn-shadow-color); margin-bottom: 4px; }
         .btn-minimal:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--btn-shadow-color); background-color: #9c0c28; }
         .btn-minimal:active { transform: translateY(4px); box-shadow: 0 0 0 var(--btn-shadow-color); }
+
+        /* COMING SOON STYLES (NEW) */
+        .product-card.coming-soon .card-image {
+            filter: grayscale(100%) brightness(0.6); /* Gelapkan gambar & hitam putih */
+        }
+        .product-card.coming-soon .card-content {
+            opacity: 0.8;
+            background-color: #f0f0f0; /* Background content lebih abu */
+            border-color: #d1d5db;
+        }
+        .product-card.coming-soon .discount-price-grid {
+             color: #6b7280; /* Harga jadi abu-abu */
+        }
+        .btn-coming-soon {
+            display: block; width: 100%; padding: 8px 0; text-align: center; text-decoration: none;
+            font-size: 0.75rem; font-weight: 700; border-radius: 12px;
+            background-color: #d1d5db; color: #6b7280; border: none;
+            cursor: not-allowed; pointer-events: none;
+            box-shadow: none; margin-bottom: 4px;
+        }
+        .cs-overlay {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            color: white; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.1em;
+            text-transform: uppercase; z-index: 5; text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.5); padding: 4px 8px;
+            background: rgba(0,0,0,0.3); backdrop-filter: blur(2px); width: 80%; text-align: center;
+        }
+
 
         /* MAROON SLIDER STYLES */
         .maroon-slider-wrapper { position: relative; width: 100%; max-width: 480px; margin: 0 auto; padding-bottom: 30px; }
@@ -232,8 +261,8 @@
 
     <div class="w-full bg-white py-8 flex flex-col items-center justify-center relative z-20 border-b border-gray-100 shadow-sm">
          <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-3 font-semibold">Need an MC?</p>
-         <a href="https://lynk.id/rizakamilaa/page/public-speaking" class="btn-gold-pulse w-fit mx-auto px-5 py-2.5 rounded-full font-bold text-[11px] md:text-xs tracking-[0.15em] uppercase shadow-lg active:scale-95 flex justify-center items-center transition-all duration-300">
-             Cek Master Of Ceremony →
+         <a href="index.html" class="btn-gold-pulse w-fit mx-auto px-5 py-2.5 rounded-full font-bold text-[11px] md:text-xs tracking-[0.15em] uppercase shadow-lg active:scale-95 flex justify-center items-center transition-all duration-300">
+             Cek Portfolio MC →
          </a>
     </div>
 
@@ -335,6 +364,7 @@
             <h2 class="text-xl font-serif font-bold mt-1 text-black">Produk Public Speaking</h2>
         </div>
         <div class="product-grid scroll-section delay-100">
+            
             <div class="product-card">
                 <div class="card-image-wrapper">
                     <img src="https://image2url.com/r2/default/images/1769524097745-920cb59d-dc31-4cb6-a092-64e4a0fa5360.png" alt="Session" class="card-image">
@@ -350,9 +380,11 @@
                     <a href="https://lynk.id/rizakamilaa/mqr9245mv0x0" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
                 </div>
             </div>
-            <div class="product-card">
+
+            <div class="product-card coming-soon">
                 <div class="card-image-wrapper">
                     <img src="https://image2url.com/r2/default/images/1769581967456-3292e862-a7c4-47b7-b273-63d43c931980.png" alt="Review" class="card-image">
+                    <div class="cs-overlay">Coming Soon</div>
                 </div>
                 <div class="card-content">
                     <div>
@@ -362,12 +394,14 @@
                             <span class="discount-price-grid">Rp 800.000</span>
                         </div>
                     </div>
-                    <a href="https://lynk.id/rizakamilaa/jrx10o0n15jy" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                    <button class="btn-coming-soon">Soon</button>
                 </div>
             </div>
-             <div class="product-card">
+
+             <div class="product-card coming-soon">
                 <div class="card-image-wrapper">
                     <img src="https://image2url.com/r2/default/images/1769582000373-5075cbd0-bea0-42fc-9430-c8805fcc9be2.png" alt="Ebook" class="card-image">
+                    <div class="cs-overlay">Coming Soon</div>
                 </div>
                 <div class="card-content">
                     <div>
@@ -377,12 +411,14 @@
                             <span class="discount-price-grid">Rp 1.000.000</span>
                         </div>
                     </div>
-                    <a href="https://lynk.id/rizakamilaa/pw203x3n1q6v" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                    <button class="btn-coming-soon">Soon</button>
                 </div>
             </div>
-            <div class="product-card">
+
+            <div class="product-card coming-soon">
                 <div class="card-image-wrapper">
                     <img src="https://image2url.com/r2/default/images/1769582026207-a1f34c8b-6dd2-45c0-bd66-c33a5fe5bc8f.png" alt="Template" class="card-image">
+                    <div class="cs-overlay">Coming Soon</div>
                 </div>
                 <div class="card-content">
                     <div>
@@ -392,7 +428,7 @@
                             <span class="discount-price-grid">Rp 1.000.000</span>
                         </div>
                     </div>
-                    <a href="https://lynk.id/rizakamilaa/yd794o472omy" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                    <button class="btn-coming-soon">Soon</button>
                 </div>
             </div>
         </div>
