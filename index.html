@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Riza Kamila | Public Speaking Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;1,400&family=Quicksand:wght@500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: '#4d0a0a', 
+                        cream: '#f8f8f8',
+                        black: '#1a1a1a',
+                        gold: '#C5A059'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        quick: ['Quicksand', 'sans-serif'],
+                        pop: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f8f8f8; margin: 0; overflow-x: hidden; overflow-y: auto; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        #hero-container { width: 100vw; height: 200px; position: relative; overflow: hidden; }
+        @media (min-width: 768px) { #hero-container { height: 90vh; } }
+        .slider-track { display: flex; width: 400%; height: 100%; transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1); }
+        .slide { width: 25%; height: 100%; flex-shrink: 0; position: relative; overflow: hidden; background: white; }
+        .reveal-up { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        .reveal-img { opacity: 0; transform: scale(1.1); transition: 1s ease-out; }
+        .slide.active .reveal-up { opacity: 1; transform: translateY(0); }
+        .slide.active .reveal-img { opacity: 1; transform: scale(1); }
+        .scroll-section { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .scroll-section.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- CSS PRICING & CATALOG --- */
+        :root {
+            --p-primary: #4d0a0a; --p-white: #ffffff; --p-text-dark: #1f2937; --p-gold: #C5A059;
+            --bg-card-content: #fff5f6; --btn-color: #800020; --btn-shadow-color: #4a0012; 
+            --price-color: #9c0c28; --border-card: #a64d5e; 
+            --text-main: #4a0404; --text-secondary: #8c5660; 
+            --maroon-card: #821131;
+        }
+
+        .pricing-row { display: flex; flex-direction: row; justify-content: center; align-items: stretch; gap: 8px; max-width: 900px; margin: 0 auto; padding: 0 10px; }
+        .pricing-card { width: 100%; max-width: 400px; border-radius: 12px; padding: 15px 8px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.08); opacity: 1; font-family: 'Montserrat', sans-serif; }
+        .card-online { background: var(--p-white); border: 1px solid var(--p-primary); color: var(--p-text-dark); }
+        .p-title { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; line-height: 1.1; font-family: 'Playfair Display', serif; }
+        .p-subtitle { font-size: 0.5rem; opacity: 0.8; margin-bottom: 8px; font-style: italic; }
+        .p-price { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px dashed rgba(0,0,0,0.1); font-family: 'Playfair Display', serif; }
+        .p-price span { font-size: 0.6rem; font-weight: 500; font-family: 'Montserrat', sans-serif; }
+        .p-features { list-style: none; margin-bottom: 10px; flex-grow: 1; }
+        .p-features li { font-size: 0.5rem; margin-bottom: 4px; line-height: 1.2; display: flex; align-items: flex-start; }
+        .p-features li i { margin-right: 3px; font-size: 0.55rem; margin-top: 1px; flex-shrink: 0; }
+        .p-btn { display: block; width: 100%; padding: 8px 0; border-radius: 50px; font-size: 0.6rem; font-weight: 700; text-align: center; text-decoration: none; position: relative; overflow: hidden; transition: transform 0.2s; letter-spacing: 0.5px; text-transform: uppercase; }
+        .card-online .p-btn { background: var(--p-primary); color: var(--p-white); }
+        
+        /* CATALOG GRID */
+        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; width: 100%; max-width: 900px; margin: 0 auto; padding: 0 15px; }
+        .product-card { display: flex; flex-direction: column; background: transparent; border: none; }
+        .card-image-wrapper { position: relative; width: 100%; padding-top: 55%; margin-bottom: -15px; z-index: 2; }
+        .card-image { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .product-card:hover .card-image { transform: translate(-50%, -50%) scale(1.05) rotate(-1deg); }
+        .card-content { background: var(--bg-card-content); padding: 20px 12px 14px 12px; border-radius: 16px; box-shadow: 0 4px 0 var(--border-card); border: 2px solid var(--border-card); display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; z-index: 1; text-align: left; transition: transform 0.2s ease; font-family: 'Quicksand', sans-serif; }
+        .product-card:hover .card-content { transform: translateY(-2px); }
+        .product-name { font-size: 0.8rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px; line-height: 1.3; height: 2.6em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .price-container-grid { margin-bottom: 12px; display: flex; flex-direction: column; align-items: flex-start; }
+        .original-price-grid { font-size: 0.65rem; color: var(--text-secondary); text-decoration: line-through; font-weight: 500; margin-bottom: 2px; }
+        .discount-price-grid { font-size: 0.9rem; color: var(--price-color); font-weight: 800; }
+        .btn-minimal { display: block; width: 100%; padding: 8px 0; text-align: center; text-decoration: none; font-size: 0.75rem; font-weight: 700; border-radius: 12px; transition: all 0.2s ease; background-color: var(--btn-color); color: #fff0f5; border: none; box-shadow: 0 4px 0 var(--btn-shadow-color); margin-bottom: 4px; }
+        .btn-minimal:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--btn-shadow-color); background-color: #9c0c28; }
+        .btn-minimal:active { transform: translateY(4px); box-shadow: 0 0 0 var(--btn-shadow-color); }
+
+        /* MAROON SLIDER STYLES */
+        .maroon-slider-wrapper { position: relative; width: 100%; max-width: 480px; margin: 0 auto; padding-bottom: 30px; }
+        .maroon-slides-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; gap: 15px; padding: 0 5px; }
+        .maroon-slides-container::-webkit-scrollbar { display: none; }
+        .maroon-card { flex: 0 0 100%; scroll-snap-align: center; background-color: var(--maroon-card); color: white; border-radius: 16px; padding: 20px 25px; position: relative; overflow: hidden; height: 160px; display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(255,255,255,0.1); font-family: 'Poppins', sans-serif; }
+        .bg-icon { position: absolute; right: -10px; bottom: -20px; font-size: 7rem; color: rgba(255, 255, 255, 0.05); transform: rotate(-10deg); pointer-events: none; }
+        .m-title { font-size: 1.1rem; font-weight: 700; line-height: 1.2; text-transform: uppercase; margin-bottom: 5px; }
+        .m-tagline { font-size: 0.75rem; font-weight: 600; color: var(--p-gold); margin-bottom: 5px; }
+        .m-desc { font-size: 0.7rem; opacity: 0.9; font-weight: 300; line-height: 1.4; max-width: 85%; margin-bottom: 15px; }
+        .badge-list { font-size: 0.65rem; background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 2px; }
+        .cta-link { display: inline-flex; align-items: center; color: white; text-decoration: none; font-size: 0.8rem; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px; width: fit-content; transition: 0.3s; z-index: 10; }
+        .cta-link:hover { color: var(--p-gold); border-color: var(--p-gold); }
+        .cta-link i { margin-left: 6px; font-size: 0.7rem; transition: 0.3s; }
+        .cta-link:hover i { transform: translateX(5px); }
+        .dots-container { display: flex; justify-content: center; margin-top: 15px; gap: 6px; }
+        .dot { width: 6px; height: 6px; background-color: #d1d5db; border-radius: 50%; transition: 0.3s; }
+        .dot.active { background-color: var(--maroon-card); width: 20px; border-radius: 10px; }
+
+        @media (min-width: 768px) {
+            .pricing-card { padding: 25px; } .p-title { font-size: 1.2rem; } .p-subtitle { font-size: 0.8rem; } .p-price { font-size: 2rem; margin-bottom: 20px; } .p-features li { font-size: 0.85rem; margin-bottom: 10px; } .p-features li i { font-size: 1rem; margin-right: 10px; } .p-btn { font-size: 0.9rem; padding: 15px 0; }
+            .product-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        }
+        
+        @keyframes pulseGold { 0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); transform: translateX(50%) scale(1); } 70% { box-shadow: 0 0 0 6px rgba(197, 160, 89, 0); transform: translateX(50%) scale(1.05); } 100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); transform: translateX(50%) scale(1); } }
+    </style>
+</head>
+<body class="text-gray-900">
+
+    <nav id="navbar" class="absolute top-0 left-0 w-full z-50 flex justify-center md:justify-end items-center px-4 py-4 transition-all duration-300">
+        <div class="hidden md:flex gap-6 text-[10px] tracking-[0.2em] font-bold uppercase text-burgundy bg-white/80 px-6 py-2 rounded-full backdrop-blur-sm">
+            <a href="#speaking" class="hover:text-gold transition">Shop</a>
+            <a href="index.html" class="hover:text-gold transition">MC</a>
+            <a href="#speaking" class="text-gold border-b border-gold transition">Speaking</a>
+        </div>
+    </nav>
+
+    <div id="hero-container">
+        <div class="slider-track" id="track">
+            <div class="slide active">
+                <div class="w-full h-full relative flex items-center justify-center bg-burgundy px-4">
+                    <div class="absolute inset-0 z-0 opacity-30 mix-blend-screen">
+                        <img src="https://image2url.com/r2/default/images/1769403155148-2b58caef-4494-4272-b716-99ef14b3b691.png" class="w-full h-full object-cover blur-sm">
+                    </div>
+                    <div class="relative z-10 w-full max-w-4xl text-center reveal-img">
+                        <h1 class="text-base md:text-5xl font-serif text-white leading-snug font-light">
+                            "Connecting People through <span class="italic font-bold">Voice.</span>"
+                        </h1>
+                        <div class="flex justify-center gap-4 mt-2 text-white/80">
+                            <div class="text-center"><span class="block text-xs font-bold">CPS</span><span class="text-[6px] uppercase tracking-widest">Certified</span></div>
+                             <div class="text-center"><span class="block text-xs font-bold">2014</span><span class="text-[6px] uppercase tracking-widest">Since</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="slide">
+                <div class="w-full h-full flex flex-row">
+                    <div class="w-1/2 h-full flex flex-col justify-center px-4 md:px-16 bg-white relative z-20 border-r border-gray-100">
+                        <div class="reveal-up">
+                            <span class="text-[7px] md:text-[10px] font-bold tracking-[0.2em] text-burgundy block mb-0.5">PORTFOLIO</span>
+                            <h1 class="text-xl md:text-[5rem] leading-[1] font-serif font-bold text-black mb-1 md:mb-4">
+                                RIZA <br> <span class="text-burgundy italic font-medium">Kamila.</span>
+                            </h1>
+                            <p class="text-[7px] md:text-sm text-gray-500 leading-tight max-w-xs border-l-2 border-burgundy pl-2">
+                                Public Speaking Mentor based in Malang.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-1/2 h-full relative overflow-hidden bg-cream">
+                        <img src="https://image2url.com/r2/default/images/1769840223244-e0ef08ad-888f-46ae-b6c7-51b018de2345.png" class="w-full h-full object-cover object-top reveal-img" alt="Cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-2 right-2 z-50 flex gap-1">
+            <button onclick="prevSlide()" class="p-1 border border-burgundy rounded-full hover:bg-burgundy hover:text-white transition text-[8px]">←</button>
+            <button onclick="nextSlide()" class="p-1 border border-burgundy rounded-full hover:bg-burgundy hover:text-white transition text-[8px]">→</button>
+        </div>
+    </div>
+
+    <div class="w-full h-3 bg-white border-b border-gray-100 shadow-sm relative z-20"></div>
+
+    <section id="speaking" class="py-10 md:py-20 bg-cream relative overflow-hidden">
+        <div class="px-5 md:px-20 mb-4 md:mb-10 flex justify-between items-end scroll-section">
+            <div class="text-left w-full"> 
+                <span class="text-burgundy font-bold text-[9px] tracking-[0.3em] uppercase">Expertise</span>
+                <h2 class="text-2xl md:text-5xl font-serif font-bold mt-1 text-left">Public<br>Speaking.</h2>
+            </div>
+        </div>
+
+        <div class="maroon-slider-wrapper scroll-section delay-100">
+            <div class="maroon-slides-container" id="maroon-slider">
+
+                <div class="maroon-card">
+                    <i class="fas fa-bullhorn bg-icon"></i>
+                    <div class="m-title">Public Speaking Fundamentals</div>
+                    <div class="m-tagline">Build Confidence & Clarity</div>
+                    <div class="m-desc">
+                        Mini Class • 4 Sessions • Practice-Based<br>
+                        <span class="badge-list">Foundation Level</span>
+                    </div>
+                    <a href="https://lynk.id/rizakamilaa/mqr9245mv0x0" class="cta-link" target="_blank">Booking Sekarang <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="maroon-card">
+                    <i class="fas fa-heart bg-icon"></i>
+                    <div class="m-title">Confident Speaker Bootcamp</div>
+                    <div class="m-tagline">Overcome Fear & Anxiety</div>
+                    <div class="m-desc">
+                        Target: Pemula • Overthinking • Takut Ngomong<br>
+                        <span class="badge-list">Supportive Environment</span>
+                    </div>
+                    <a href="http://lynk.id/rizakamilaa/jrx10o0n15jy/checkout" class="cta-link" target="_blank">Booking Sekarang <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="maroon-card">
+                    <i class="fas fa-briefcase bg-icon"></i>
+                    <div class="m-title">Pro Presentation Skills</div>
+                    <div class="m-tagline">Structure • Delivery • Impact</div>
+                    <div class="m-desc">
+                        Fokus: Pitching • Rapat • Kerjaan Kantor<br>
+                        <span class="badge-list">Case-Based Practice</span>
+                    </div>
+                    <a href="http://lynk.id/rizakamilaa/pw203x3n1q6v/checkout" class="cta-link" target="_blank">Booking Sekarang <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="maroon-card">
+                    <i class="fas fa-video bg-icon"></i>
+                    <div class="m-title">Camera Speaking</div>
+                    <div class="m-tagline">Speak Naturally on Camera</div>
+                    <div class="m-desc">
+                        Target: Creator • UMKM • Personal Branding<br>
+                        <span class="badge-list">Feedback Session</span>
+                    </div>
+                    <a href="http://lynk.id/rizakamilaa/yd794o472omy/checkout" class="cta-link" target="_blank">Booking Sekarang <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+
+            <div class="dots-container" id="dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-white py-12 relative z-20">
+        <div class="text-center mb-6 scroll-section">
+            <span class="text-burgundy font-bold text-[8px] tracking-[0.3em] uppercase">Private Class</span>
+            <h2 class="text-xl font-serif font-bold mt-1 text-black">Start Your Journey</h2>
+        </div>
+        <div class="pricing-row scroll-section delay-100">
+            <div class="pricing-card card-online">
+                <div>
+                    <h3 class="p-title">Private<br>Speaking</h3>
+                    <div class="p-subtitle">Online Zoom • 60 Menit</div>
+                    <div class="p-price">195K <span>/sesi</span></div>
+                    <ul class="p-features">
+                        <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Bicara Tenang & Pede</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Olah Intonasi</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Teknik Opening</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Prepare Pitching</li>
+                        <li><i class="fas fa-users" style="color:var(--p-primary)"></i> Free: Komunitas</li>
+                    </ul>
+                </div>
+                <a href="https://lynk.id/rizakamilaa/dx1839p27vq6" class="p-btn" target="_blank">Daftar Online</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-cream py-8 relative z-20">
+        <div class="text-center mb-6 scroll-section">
+            <span class="text-burgundy font-bold text-[8px] tracking-[0.3em] uppercase">Speaking Tools</span>
+            <h2 class="text-xl font-serif font-bold mt-1 text-black">Produk Public Speaking</h2>
+        </div>
+        <div class="product-grid scroll-section delay-100">
+            <div class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://image2url.com/r2/default/images/1769524097745-920cb59d-dc31-4cb6-a092-64e4a0fa5360.png" alt="Session" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <div class="product-name">Public Speaking Fundamentals</div>
+                        <div class="price-container-grid">
+                            <span class="original-price-grid">Rp 729.000</span>
+                            <span class="discount-price-grid">Rp 150.000</span>
+                        </div>
+                    </div>
+                    <a href="https://lynk.id/rizakamilaa/mqr9245mv0x0" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://image2url.com/r2/default/images/1769581967456-3292e862-a7c4-47b7-b273-63d43c931980.png" alt="Review" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <div class="product-name">Confident Speaking Intensive</div>
+                        <div class="price-container-grid">
+                            <span class="original-price-grid">Rp 270.000</span>
+                            <span class="discount-price-grid">Rp 150.000</span>
+                        </div>
+                    </div>
+                    <a href="https://lynk.id/rizakamilaa/jrx10o0n15jy" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                </div>
+            </div>
+             <div class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://image2url.com/r2/default/images/1769582000373-5075cbd0-bea0-42fc-9430-c8805fcc9be2.png" alt="Ebook" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <div class="product-name">Professional Presentation Mastery</div>
+                        <div class="price-container-grid">
+                            <span class="original-price-grid">Rp 290.000</span>
+                            <span class="discount-price-grid">Rp 150.000</span>
+                        </div>
+                    </div>
+                    <a href="https://lynk.id/rizakamilaa/pw203x3n1q6v" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://image2url.com/r2/default/images/1769582026207-a1f34c8b-6dd2-45c0-bd66-c33a5fe5bc8f.png" alt="Template" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <div class="product-name">Camera Speaking Professional</div>
+                        <div class="price-container-grid">
+                            <span class="original-price-grid">Rp 290.000</span>
+                            <span class="discount-price-grid">Rp 150.000</span>
+                        </div>
+                    </div>
+                    <a href="https://lynk.id/rizakamilaa/yd794o472omy" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="py-8 bg-cream border-t border-gray-200">
+        <div class="text-center mb-6 scroll-section">
+            <span class="text-burgundy font-bold text-[8px] tracking-[0.3em] uppercase">On Stage</span>
+            <h2 class="text-xl font-serif font-bold mt-1 text-black">Latest Reels</h2>
+        </div>
+        <div class="flex overflow-x-auto gap-3 px-5 pb-4 no-scrollbar items-start" style="scroll-snap-type: x mandatory;">
+            
+            <a href="https://www.instagram.com/reel/DTF5uvhEdDc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center shadow-lg">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    <source src="https://image2url.com/r2/default/videos/1769405263930-a1a20b88-c020-4458-93f5-088182529f4d.mp4" type="video/mp4">
+                </video>
+                <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[6px] md:text-[9px] font-bold tracking-widest text-burgundy shadow-md z-20">THURSINA</div>
+            </a>
+
+            <a href="https://www.instagram.com/reel/C7VyKD1PzHD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center shadow-lg">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    <source src="https://image2url.com/r2/default/videos/1769405349851-134c311a-70b1-4de4-9ab4-dc023cfe2809.mp4" type="video/mp4">
+                </video>
+                <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[6px] md:text-[9px] font-bold tracking-widest text-burgundy shadow-md z-20">NURUL HUDA</div>
+            </a>
+
+            <a href="https://www.instagram.com/reel/DKwpBt3z--K/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center shadow-lg">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    <source src="https://image2url.com/r2/default/videos/1769405802982-7d86fe8a-10ed-4bbe-8460-7155d3113dcb.mp4" type="video/mp4">
+                </video>
+                <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[6px] md:text-[9px] font-bold tracking-widest text-burgundy shadow-md z-20">PUBLIC SPEAKING</div>
+            </a>
+
+             <a href="https://www.instagram.com/reel/DMaJwPTzZfY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center shadow-lg">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    <source src="https://image2url.com/r2/default/videos/1769407873903-1dfeb1a9-0a54-482b-9c8d-1e8507fbcbac.mp4" type="video/mp4">
+                </video>
+                <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[6px] md:text-[9px] font-bold tracking-widest text-burgundy shadow-md z-20">CREATOR</div>
+            </a>
+            
+        </div>
+        
+        <div class="flex justify-center mt-6 gap-2">
+            <div class="w-1.5 h-1.5 rounded-full bg-burgundy opacity-100"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-burgundy opacity-50"></div>
+        </div>
+    </div>
+
+    <footer class="bg-white py-10 md:py-20 text-center border-t border-gray-200 scroll-section px-4">
+        <h3 class="text-[9px] font-bold tracking-[0.3em] text-gray-400 mb-4 uppercase">Socials</h3>
+        <h1 class="text-2xl md:text-5xl font-serif font-bold text-burgundy mb-8">Let's Connect.</h1>
+
+        <div class="flex justify-center items-center gap-6 md:gap-8">
+            <a href="https://wa.link/v8l6mq" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-white transition-all duration-300">
+                <i class="fab fa-whatsapp text-lg"></i>
+            </a>
+
+            <a href="https://instagram.com/rizakamila" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-white transition-all duration-300">
+                <i class="fab fa-instagram text-lg"></i>
+            </a>
+
+            <a href="https://tiktok.com/@rizakamila_" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-white transition-all duration-300">
+                <i class="fab fa-tiktok text-lg"></i>
+            </a>
+
+            <a href="https://youtube.com/@rizakamila" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-white transition-all duration-300">
+                <i class="fab fa-youtube text-lg"></i>
+            </a>
+        </div>
+
+        <div class="mt-8 text-[8px] text-gray-400 tracking-wider">
+            © 2026 RIZA IMROATUL KAMILA • ALL RIGHTS RESERVED
+        </div>
+    </footer>
+
+    <script>
+        // SLIDERS & SCROLL
+        let currentHero = 0; const totalHero = 2; // Reduced hero count for this page if needed
+        const trackHero = document.getElementById('track'); const slides = document.querySelectorAll('.slide');
+        function updateHero() { trackHero.style.transform = `translateX(-${currentHero * 50}%)`; slides.forEach((s, i) => s.classList.toggle('active', i === currentHero)); }
+        function nextSlide() { currentHero = (currentHero + 1) % totalHero; updateHero(); }
+        function prevSlide() { currentHero = (currentHero - 1 + totalHero) % totalHero; updateHero(); }
+        // Adjusted slider track width since we only kept 2 slides
+        document.querySelector('.slider-track').style.width = '200%';
+        document.querySelectorAll('.slide').forEach(el => el.style.width = '50%');
+
+        setInterval(() => { if(window.scrollY < 200) nextSlide(); }, 5000);
+
+        function scrollToContent() { document.getElementById('speaking').scrollIntoView({behavior: 'smooth'}); }
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+        document.querySelectorAll('.scroll-section').forEach(el => observer.observe(el));
+
+        // AUTO SLIDE FOR MAROON SLIDER (5 SECONDS)
+        const maroonSlider = document.getElementById('maroon-slider');
+        const maroonDots = document.querySelectorAll('.dot');
+        let maroonInterval;
+
+        function startMaroonAutoSlide() {
+            maroonInterval = setInterval(() => {
+                const cardWidth = maroonSlider.offsetWidth; 
+                const maxScroll = maroonSlider.scrollWidth - maroonSlider.clientWidth; 
+
+                if (maroonSlider.scrollLeft >= maxScroll - 10) {
+                    maroonSlider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    maroonSlider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                }
+            }, 5000);
+        }
+
+        startMaroonAutoSlide();
+
+        maroonSlider.addEventListener('scroll', () => {
+            const scrollLeft = maroonSlider.scrollLeft;
+            const width = maroonSlider.offsetWidth;
+            const activeIndex = Math.round(scrollLeft / width);
+            maroonDots.forEach((dot, index) => {
+                if (index === activeIndex) { dot.classList.add('active'); } else { dot.classList.remove('active'); }
+            });
+        });
+
+        maroonSlider.addEventListener('touchstart', () => clearInterval(maroonInterval));
+        maroonSlider.addEventListener('touchend', () => setTimeout(startMaroonAutoSlide, 2000));
+        maroonSlider.addEventListener('mouseenter', () => clearInterval(maroonInterval));
+        maroonSlider.addEventListener('mouseleave', () => startMaroonAutoSlide());
+
+    </script>
+</body>
+</html>
