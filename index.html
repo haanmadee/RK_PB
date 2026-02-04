@@ -13,10 +13,10 @@
             theme: {
                 extend: {
                     colors: {
-                        burgundy: '#4d0a0a', 
+                        burgundy: '#821131', /* Warna Utama */
                         cream: '#f8f8f8',
                         black: '#1a1a1a',
-                        gold: '#C5A059'
+                        gold: '#C5A059',
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
@@ -36,8 +36,10 @@
         
         #hero-container { width: 100vw; height: 200px; position: relative; overflow: hidden; }
         @media (min-width: 768px) { #hero-container { height: 90vh; } }
+        /* Updated for 4 Slides */
         .slider-track { display: flex; width: 400%; height: 100%; transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1); }
         .slide { width: 25%; height: 100%; flex-shrink: 0; position: relative; overflow: hidden; background: white; }
+        
         .reveal-up { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
         .reveal-img { opacity: 0; transform: scale(1.1); transition: 1s ease-out; }
         .slide.active .reveal-up { opacity: 1; transform: translateY(0); }
@@ -45,12 +47,35 @@
         .scroll-section { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .scroll-section.visible { opacity: 1; transform: translateY(0); }
 
-        /* --- CSS PRICING & CATALOG --- */
+        /* BUTTON GOLD PULSE */
+        .btn-gold-pulse {
+            position: relative;
+            background-color: #C5A059;
+            color: white;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+        }
+        .btn-gold-pulse:hover {
+            background-color: #b08d4e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
+        }
+        .btn-gold-pulse:active { transform: scale(0.98); }
+        .btn-gold-pulse::before, .btn-gold-pulse::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 9999px; border: 1px solid #C5A059; z-index: -1;
+            animation: rippleLinesGold 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        .btn-gold-pulse::after { animation-delay: 0.6s; }
+        @keyframes rippleLinesGold { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.4); opacity: 0; } }
+
+        /* CSS VARIABLES */
         :root {
-            --p-primary: #4d0a0a; --p-white: #ffffff; --p-text-dark: #1f2937; --p-gold: #C5A059;
-            --bg-card-content: #fff5f6; --btn-color: #800020; --btn-shadow-color: #4a0012; 
+            --p-primary: #821131; --p-white: #ffffff; --p-text-dark: #1f2937; --p-gold: #C5A059;
+            --bg-card-content: #fff5f6; --btn-color: #9c143a; --btn-shadow-color: #580b21; 
             --price-color: #9c0c28; --border-card: #a64d5e; 
-            --text-main: #4a0404; --text-secondary: #8c5660; 
+            --text-main: #821131; --text-secondary: #8c5660; 
             --maroon-card: #821131;
         }
 
@@ -121,45 +146,93 @@
 
     <div id="hero-container">
         <div class="slider-track" id="track">
+            
             <div class="slide active">
-                <div class="w-full h-full relative flex items-center justify-center bg-burgundy px-4">
-                    <div class="absolute inset-0 z-0 opacity-30 mix-blend-screen">
-                        <img src="https://image2url.com/r2/default/images/1769403155148-2b58caef-4494-4272-b716-99ef14b3b691.png" class="w-full h-full object-cover blur-sm">
-                    </div>
-                    <div class="relative z-10 w-full max-w-4xl text-center reveal-img">
-                        <h1 class="text-base md:text-5xl font-serif text-white leading-snug font-light">
-                            "Connecting People through <span class="italic font-bold">Voice.</span>"
-                        </h1>
-                        <div class="flex justify-center gap-4 mt-2 text-white/80">
-                            <div class="text-center"><span class="block text-xs font-bold">CPS</span><span class="text-[6px] uppercase tracking-widest">Certified</span></div>
-                             <div class="text-center"><span class="block text-xs font-bold">2014</span><span class="text-[6px] uppercase tracking-widest">Since</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             <div class="slide">
                 <div class="w-full h-full flex flex-row">
                     <div class="w-1/2 h-full flex flex-col justify-center px-4 md:px-16 bg-white relative z-20 border-r border-gray-100">
                         <div class="reveal-up">
-                            <span class="text-[7px] md:text-[10px] font-bold tracking-[0.2em] text-burgundy block mb-0.5">PORTFOLIO</span>
-                            <h1 class="text-xl md:text-[5rem] leading-[1] font-serif font-bold text-black mb-1 md:mb-4">
-                                RIZA <br> <span class="text-burgundy italic font-medium">Kamila.</span>
+                            <span class="text-[4rem] md:text-[6rem] text-gray-100 font-serif font-bold absolute -top-10 -left-4 -z-10 select-none">01</span>
+                            <span class="text-[7px] md:text-[10px] font-bold tracking-[0.2em] text-gold block mb-1">THE SPEAKER</span>
+                            <h1 class="text-xl md:text-[4rem] leading-[1.1] font-serif font-bold text-burgundy mb-2">
+                                RIZA <br> <span class="italic font-light text-black">Kamila.</span>
                             </h1>
-                            <p class="text-[7px] md:text-sm text-gray-500 leading-tight max-w-xs border-l-2 border-burgundy pl-2">
-                                Public Speaking Mentor based in Malang.
+                            <p class="text-[7px] md:text-sm text-gray-500 leading-relaxed border-l-2 border-burgundy pl-3 max-w-xs">
+                                <b>Public Speaking Mentor</b> & MC Professional sejak 2014. Membantu Anda berani bicara dan berdampak.
                             </p>
                         </div>
                     </div>
                     <div class="w-1/2 h-full relative overflow-hidden bg-cream">
-                        <img src="https://image2url.com/r2/default/images/1769840223244-e0ef08ad-888f-46ae-b6c7-51b018de2345.png" class="w-full h-full object-cover object-top reveal-img" alt="Cover">
+                        <img src="https://image2url.com/r2/default/images/1769403155148-2b58caef-4494-4272-b716-99ef14b3b691.png" class="w-full h-full object-cover object-center reveal-img" alt="Profile">
                     </div>
                 </div>
             </div>
+
+            <div class="slide bg-[#fafafa]">
+                <div class="w-full h-full flex flex-row"> 
+                    <div class="w-1/2 h-full flex flex-col justify-center px-4 md:px-12 relative z-20 border-r border-gray-100">
+                         <span class="text-[4rem] md:text-[6rem] text-gray-100 font-serif font-bold absolute -top-10 -left-4 -z-10 select-none">02</span>
+                         <span class="text-burgundy text-[7px] font-bold tracking-[0.2em] mb-1 block reveal-up">CREDIBILITY</span>
+                         <h2 class="text-lg md:text-[3.5rem] font-serif font-bold mb-2 reveal-up leading-tight text-black">Certified <br> <span class="italic text-burgundy font-light">Pro.</span></h2>
+                         <ul class="space-y-1 text-[7px] md:text-sm text-gray-600 reveal-up font-serif w-full">
+                            <li class="border-b border-gray-200 pb-1">★ <b>CPS</b> (Certified Public Speaking)</li>
+                            <li class="border-b border-gray-200 pb-1">★ <b>Probest</b> Broadcasting Alumni</li>
+                         </ul>
+                    </div>
+                    <div class="w-1/2 h-full relative overflow-hidden bg-burgundy">
+                        <img src="https://image2url.com/r2/default/images/1769840223244-e0ef08ad-888f-46ae-b6c7-51b018de2345.png" class="object-cover w-full h-full opacity-80 mix-blend-screen reveal-img">
+                        <div class="absolute bottom-4 left-4 text-white text-[8px] font-bold tracking-widest border-b border-gold pb-1">NAWARA PRATAMA & PROBEST</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="w-full h-full flex flex-row">
+                    <div class="w-1/2 h-full flex flex-col justify-center px-4 md:px-16 bg-white relative z-20 border-r border-gray-100">
+                        <div class="reveal-up">
+                            <span class="text-[4rem] md:text-[6rem] text-gray-100 font-serif font-bold absolute -top-10 -left-4 -z-10 select-none">03</span>
+                            <span class="text-[7px] md:text-[10px] font-bold tracking-[0.2em] text-gold block mb-1">EXPERIENCE</span>
+                            <h1 class="text-xl md:text-[3.5rem] leading-[1.1] font-serif font-bold text-black mb-2">
+                                On Air <br> <span class="italic text-burgundy font-light">Persona.</span>
+                            </h1>
+                            <p class="text-[7px] md:text-sm text-gray-500 leading-relaxed">
+                                Mantan Penyiar di <b>Elfara FM</b> & <b>MAS FM</b>. Menguasai komunikasi dari studio hingga panggung.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-1/2 h-full relative overflow-hidden bg-black">
+                        <img src="https://image2url.com/r2/default/images/1769403383760-d501fe68-36d8-4ebc-9a78-910dddaedd38.png" class="w-full h-full object-cover reveal-img opacity-90">
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide bg-white">
+                 <div class="w-full h-full flex flex-row">
+                    <div class="w-1/2 h-full flex flex-col justify-center px-4 md:px-12 relative z-20 border-r border-gray-100">
+                         <span class="text-[4rem] md:text-[6rem] text-gray-100 font-serif font-bold absolute -top-10 -left-4 -z-10 select-none">04</span>
+                         <span class="text-burgundy text-[7px] font-bold tracking-[0.2em] mb-1 block reveal-up">MENTORING</span>
+                         <h2 class="text-lg md:text-[3.5rem] font-serif font-bold mb-2 reveal-up leading-tight text-black">Teach & <br> <span class="italic text-gold font-light">Inspire.</span></h2>
+                         <p class="text-[7px] md:text-sm text-gray-600 reveal-up leading-relaxed">
+                            Pengajar Public Speaking di <b>Thursina IIBS</b> & Content Creator di <b>MA Nurul Huda</b>.
+                         </p>
+                    </div>
+                    <div class="w-1/2 h-full grid grid-rows-2 gap-1 p-1 bg-cream">
+                        <div class="w-full h-full bg-gray-200 overflow-hidden"><img src="https://image2url.com/r2/default/images/1769405263930-a1a20b88-c020-4458-93f5-088182529f4d.mp4" class="object-cover w-full h-full grayscale hover:grayscale-0 transition"></div> <div class="w-full h-full bg-burgundy overflow-hidden relative"><div class="absolute inset-0 flex items-center justify-center text-white font-serif italic text-xl">Thursina</div></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="absolute bottom-2 right-2 z-50 flex gap-1">
             <button onclick="prevSlide()" class="p-1 border border-burgundy rounded-full hover:bg-burgundy hover:text-white transition text-[8px]">←</button>
             <button onclick="nextSlide()" class="p-1 border border-burgundy rounded-full hover:bg-burgundy hover:text-white transition text-[8px]">→</button>
         </div>
+    </div>
+
+    <div class="w-full bg-white py-8 flex flex-col items-center justify-center relative z-20 border-b border-gray-100 shadow-sm">
+         <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-3 font-semibold">Need an MC?</p>
+         <a href="index.html" class="btn-gold-pulse w-fit mx-auto px-5 py-2.5 rounded-full font-bold text-[11px] md:text-xs tracking-[0.15em] uppercase shadow-lg active:scale-95 flex justify-center items-center transition-all duration-300">
+             Cek Master of Ceremony →
+         </a>
     </div>
 
     <div class="w-full h-3 bg-white border-b border-gray-100 shadow-sm relative z-20"></div>
@@ -395,14 +468,15 @@
 
     <script>
         // SLIDERS & SCROLL
-        let currentHero = 0; const totalHero = 2; // Reduced hero count for this page if needed
+        let currentHero = 0; const totalHero = 4; // UPDATED TO 4 SLIDES
         const trackHero = document.getElementById('track'); const slides = document.querySelectorAll('.slide');
-        function updateHero() { trackHero.style.transform = `translateX(-${currentHero * 50}%)`; slides.forEach((s, i) => s.classList.toggle('active', i === currentHero)); }
+        function updateHero() { trackHero.style.transform = `translateX(-${currentHero * 25}%)`; slides.forEach((s, i) => s.classList.toggle('active', i === currentHero)); }
         function nextSlide() { currentHero = (currentHero + 1) % totalHero; updateHero(); }
         function prevSlide() { currentHero = (currentHero - 1 + totalHero) % totalHero; updateHero(); }
-        // Adjusted slider track width since we only kept 2 slides
-        document.querySelector('.slider-track').style.width = '200%';
-        document.querySelectorAll('.slide').forEach(el => el.style.width = '50%');
+        
+        // Adjust track width for 4 slides (400%)
+        document.querySelector('.slider-track').style.width = '400%';
+        document.querySelectorAll('.slide').forEach(el => el.style.width = '25%');
 
         setInterval(() => { if(window.scrollY < 200) nextSlide(); }, 5000);
 
