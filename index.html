@@ -56,13 +56,13 @@
         /* --- SLIDER STYLES (ORIGINAL SIZE RESTORED) --- */
         #hero-container { 
             width: 100vw; 
-            height: 200px; /* KEMBALI KE 200PX (Persegi Panjang Minimalis) */
+            height: 200px; 
             position: relative; 
             overflow: hidden; 
             margin-top: 0; 
         }
         @media (min-width: 768px) { 
-            #hero-container { height: 500px; } /* Desktop tetap agak tinggi tapi proporsional */
+            #hero-container { height: 500px; } 
         }
         
         .slider-track { display: flex; width: 400%; height: 100%; transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1); }
@@ -144,20 +144,63 @@
         .btn-coming-soon { display: block; width: 100%; padding: 8px 0; text-align: center; text-decoration: none; font-size: 0.75rem; font-weight: 700; border-radius: 12px; background-color: #d1d5db; color: #6b7280; border: none; cursor: not-allowed; pointer-events: none; box-shadow: none; margin-bottom: 4px; }
         .cs-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; z-index: 5; text-shadow: 0 2px 4px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.5); padding: 4px 8px; background: rgba(0,0,0,0.3); backdrop-filter: blur(2px); width: 80%; text-align: center; }
 
-        /* MAROON SLIDER STYLES */
-        .maroon-slider-wrapper { position: relative; width: 100%; max-width: 480px; margin: 0 auto; padding-bottom: 30px; }
+        /* MAROON SLIDER STYLES (UPDATED FOR "WHY" CONTENT) */
+        .maroon-slider-wrapper { position: relative; width: 100%; max-width: 480px; margin: 0 auto; padding-bottom: 20px; }
         .maroon-slides-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; gap: 15px; padding: 0 5px; }
         .maroon-slides-container::-webkit-scrollbar { display: none; }
-        .maroon-card { flex: 0 0 100%; scroll-snap-align: center; background-color: var(--maroon-card); color: white; border-radius: 16px; padding: 20px 25px; position: relative; overflow: hidden; height: 160px; display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(255,255,255,0.1); font-family: 'Poppins', sans-serif; }
-        .bg-icon { position: absolute; right: -10px; bottom: -20px; font-size: 7rem; color: rgba(255, 255, 255, 0.05); transform: rotate(-10deg); pointer-events: none; }
-        .m-title { font-size: 1.1rem; font-weight: 700; line-height: 1.2; text-transform: uppercase; margin-bottom: 5px; }
-        .m-tagline { font-size: 0.75rem; font-weight: 600; color: var(--p-gold); margin-bottom: 5px; }
-        .m-desc { font-size: 0.7rem; opacity: 0.9; font-weight: 300; line-height: 1.4; max-width: 85%; margin-bottom: 15px; }
-        .badge-list { font-size: 0.65rem; background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 2px; }
-        .cta-link { display: inline-flex; align-items: center; color: white; text-decoration: none; font-size: 0.8rem; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px; width: fit-content; transition: 0.3s; z-index: 10; }
-        .cta-link:hover { color: var(--p-gold); border-color: var(--p-gold); }
-        .cta-link i { margin-left: 6px; font-size: 0.7rem; transition: 0.3s; }
-        .cta-link:hover i { transform: translateX(5px); }
+        
+        .maroon-card { 
+            flex: 0 0 100%; /* Satu card per view di HP */
+            scroll-snap-align: center; 
+            background-color: var(--maroon-card); 
+            color: white; 
+            border-radius: 12px; 
+            padding: 25px 30px; 
+            position: relative; 
+            overflow: hidden; 
+            height: 180px; /* Tinggi fix biar rapi */
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            border: 1px solid rgba(255,255,255,0.1); 
+            font-family: 'Playfair Display', serif; 
+        }
+        
+        .bg-typo { 
+            position: absolute; right: -10px; bottom: -25px; 
+            font-size: 6rem; font-weight: 900; 
+            color: rgba(255, 255, 255, 0.05); 
+            transform: rotate(-5deg); pointer-events: none; 
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .why-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--p-gold);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .why-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .why-desc {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            line-height: 1.5;
+            opacity: 0.9;
+            max-width: 90%;
+            font-weight: 300;
+        }
+
         .dots-container { display: flex; justify-content: center; margin-top: 15px; gap: 6px; }
         .dot { width: 6px; height: 6px; background-color: #d1d5db; border-radius: 50%; transition: 0.3s; }
         .dot.active { background-color: var(--maroon-card); width: 20px; border-radius: 10px; }
@@ -166,8 +209,6 @@
             .pricing-card { padding: 25px; } .p-title { font-size: 1.2rem; } .p-subtitle { font-size: 0.8rem; } .p-price { font-size: 2rem; margin-bottom: 20px; } .p-features li { font-size: 0.85rem; margin-bottom: 10px; } .p-features li i { font-size: 1rem; margin-right: 10px; } .p-btn { font-size: 0.9rem; padding: 15px 0; }
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
         }
-        
-        @keyframes pulseGold { 0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); transform: translateX(50%) scale(1); } 70% { box-shadow: 0 0 0 6px rgba(197, 160, 89, 0); transform: translateX(50%) scale(1.05); } 100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); transform: translateX(50%) scale(1); } }
     </style>
 </head>
 <body class="text-gray-900 bg-white">
@@ -199,7 +240,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-4">
-                
                 <div class="md:col-span-4 space-y-4 pt-2 order-2 md:order-1">
                      <h3 class="font-serif text-2xl md:text-3xl text-burgundy leading-tight">
                         "Your voice is the most <span class="italic text-gold">powerful</span> tool you own."
@@ -238,7 +278,6 @@
                         </p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -325,8 +364,8 @@
     <section id="speaking" class="py-10 md:py-20 bg-white relative overflow-hidden">
         <div class="px-5 md:px-20 mb-4 md:mb-10 flex justify-between items-end scroll-section">
             <div class="text-left w-full"> 
-                <span class="text-burgundy font-bold text-[9px] tracking-[0.3em] uppercase">Expertise</span>
-                <h2 class="text-2xl md:text-5xl font-serif font-bold mt-1 text-left">Public<br>Speaking.</h2>
+                <span class="text-burgundy font-bold text-[9px] tracking-[0.3em] uppercase">Value</span>
+                <h2 class="text-2xl md:text-5xl font-serif font-bold mt-1 text-left">Why Public<br>Speaking?</h2>
             </div>
         </div>
 
@@ -334,47 +373,39 @@
             <div class="maroon-slides-container" id="maroon-slider">
 
                 <div class="maroon-card">
-                    <i class="fas fa-bullhorn bg-icon"></i>
-                    <div class="m-title">Public Speaking Fundamentals</div>
-                    <div class="m-tagline">Build Confidence & Clarity</div>
-                    <div class="m-desc">
-                        Mini Class • 4 Sessions • Practice-Based<br>
-                        <span class="badge-list">Foundation Level</span>
+                    <span class="bg-typo">01</span>
+                    <div class="why-label">CAREER CATALYST</div>
+                    <div class="why-title">Karir Melesat.</div>
+                    <div class="why-desc">
+                        Skill teknis bikin kamu dipanggil interview. Public speaking bikin kamu <b>dapat jabatannya.</b>
                     </div>
-                    <a href="https://lynk.id/rizakamilaa/mqr9245mv0x0" class="cta-link" target="_blank">Booking Sekarang <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <div class="maroon-card">
-                    <i class="fas fa-heart bg-icon"></i>
-                    <div class="m-title">Confident Speaker Bootcamp</div>
-                    <div class="m-tagline">Overcome Fear & Anxiety</div>
-                    <div class="m-desc">
-                        Target: Pemula • Overthinking • Takut Ngomong<br>
-                        <span class="badge-list">Supportive Environment</span>
+                    <span class="bg-typo">02</span>
+                    <div class="why-label">CONFIDENCE</div>
+                    <div class="why-title">Own The Room.</div>
+                    <div class="why-desc">
+                        Bukan soal menghilangkan rasa takut, tapi berteman dengannya. Speak loud, <b>stand tall.</b>
                     </div>
-                    <a href="http://lynk.id/rizakamilaa/jrx10o0n15jy/checkout" class="cta-link" target="_blank">Booking Sekarang <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <div class="maroon-card">
-                    <i class="fas fa-briefcase bg-icon"></i>
-                    <div class="m-title">Pro Presentation Skills</div>
-                    <div class="m-tagline">Structure • Delivery • Impact</div>
-                    <div class="m-desc">
-                        Fokus: Pitching • Rapat • Kerjaan Kantor<br>
-                        <span class="badge-list">Case-Based Practice</span>
+                    <span class="bg-typo">03</span>
+                    <div class="why-label">INFLUENCE</div>
+                    <div class="why-title">Real Impact.</div>
+                    <div class="why-desc">
+                        Ide brilian cuma jadi angan-angan kalau nggak dikomunikasikan. <b>Suarakan idemu.</b>
                     </div>
-                    <a href="http://lynk.id/rizakamilaa/pw203x3n1q6v/checkout" class="cta-link" target="_blank">Booking Sekarang <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <div class="maroon-card">
-                    <i class="fas fa-video bg-icon"></i>
-                    <div class="m-title">Camera Speaking</div>
-                    <div class="m-tagline">Speak Naturally on Camera</div>
-                    <div class="m-desc">
-                        Target: Creator • UMKM • Personal Branding<br>
-                        <span class="badge-list">Feedback Session</span>
+                    <span class="bg-typo">04</span>
+                    <div class="why-label">AUTHORITY</div>
+                    <div class="why-title">Be The Expert.</div>
+                    <div class="why-desc">
+                        Orang yang berani bicara di depan umum otomatis dianggap <b>pemimpin.</b> Jadilah expert.
                     </div>
-                    <a href="http://lynk.id/rizakamilaa/yd794o472omy/checkout" class="cta-link" target="_blank">Booking Sekarang <i class="fas fa-arrow-right"></i></a>
                 </div>
 
             </div>
