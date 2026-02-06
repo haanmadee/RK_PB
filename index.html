@@ -17,6 +17,7 @@
                         cream: '#f8f8f8',
                         black: '#1a1a1a',
                         gold: '#C5A059',
+                        wood: '#e8e1d5', /* Warna rak */
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
@@ -53,7 +54,7 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* --- SLIDER STYLES (ORIGINAL SIZE RESTORED) --- */
+        /* --- SLIDER STYLES --- */
         #hero-container { 
             width: 100vw; 
             height: 200px; 
@@ -144,13 +145,13 @@
         .btn-coming-soon { display: block; width: 100%; padding: 8px 0; text-align: center; text-decoration: none; font-size: 0.75rem; font-weight: 700; border-radius: 12px; background-color: #d1d5db; color: #6b7280; border: none; cursor: not-allowed; pointer-events: none; box-shadow: none; margin-bottom: 4px; }
         .cs-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; z-index: 5; text-shadow: 0 2px 4px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.5); padding: 4px 8px; background: rgba(0,0,0,0.3); backdrop-filter: blur(2px); width: 80%; text-align: center; }
 
-        /* MAROON SLIDER STYLES (UPDATED FOR "WHY" CONTENT) */
+        /* MAROON SLIDER STYLES */
         .maroon-slider-wrapper { position: relative; width: 100%; max-width: 480px; margin: 0 auto; padding-bottom: 20px; }
         .maroon-slides-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; gap: 15px; padding: 0 5px; }
         .maroon-slides-container::-webkit-scrollbar { display: none; }
         
         .maroon-card { 
-            flex: 0 0 100%; /* Satu card per view di HP */
+            flex: 0 0 100%; 
             scroll-snap-align: center; 
             background-color: var(--maroon-card); 
             color: white; 
@@ -158,7 +159,7 @@
             padding: 25px 30px; 
             position: relative; 
             overflow: hidden; 
-            height: 180px; /* Tinggi fix biar rapi */
+            height: 180px; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
@@ -214,19 +215,14 @@
 <body class="text-gray-900 bg-white">
 
     <section class="relative w-full pt-0 pb-6 bg-white overflow-hidden">
-        
         <div class="container mx-auto px-4 md:px-12 relative z-10 pt-4">
-            
             <div class="flex justify-between items-end pb-4 mb-2">
-                <div class="text-[9px] md:text-xs font-bold tracking-[0.3em] uppercase text-gray-400">
-                    Est. 2014 // Indonesia
-                </div>
+                <div class="text-[9px] md:text-xs font-bold tracking-[0.3em] uppercase text-gray-400">Est. 2014 // Indonesia</div>
                 <div class="text-right">
                     <span class="block text-[8px] md:text-[10px] tracking-widest uppercase text-gold font-bold mb-1">Portfolio</span>
                     <span class="text-xl font-serif italic text-burgundy">Vol. 01</span>
                 </div>
             </div>
-
             <div class="text-center mb-6 relative">
                 <h2 class="text-[12px] md:text-sm font-bold tracking-[0.5em] text-burgundy uppercase mb-2">The Art Of Influence</h2>
                 <h1 class="mag-headline text-[15vw] md:text-[9rem] font-serif font-bold text-black mix-blend-darken">
@@ -238,44 +234,27 @@
                     <span class="text-gold">.</span>
                 </h1>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-4">
                 <div class="md:col-span-4 space-y-4 pt-2 order-2 md:order-1">
-                     <h3 class="font-serif text-2xl md:text-3xl text-burgundy leading-tight">
-                        "Your voice is the most <span class="italic text-gold">powerful</span> tool you own."
-                    </h3>
+                     <h3 class="font-serif text-2xl md:text-3xl text-burgundy leading-tight">"Your voice is the most <span class="italic text-gold">powerful</span> tool you own."</h3>
                     <p class="text-[10px] md:text-xs leading-loose text-gray-600 font-medium mag-text-justify">
-                        <span class="drop-cap">P</span>ublic speaking itu seni. Bukan cuma soal berani, tapi gimana suaramu bisa berdampak. Lebih dari 10 tahun, aku bantu banyak orang nemuin karakter bicaranya. Dari radio ke panggung besar, aku percaya ceritamu itu mahal. Yuk, ubah <i>nervous</i> jadi karisma.
+                        <span class="drop-cap">P</span>ublic speaking itu seni. Bukan cuma soal berani, tapi gimana suaramu bisa berdampak. Lebih dari 10 tahun, aku bantu banyak orang nemuin karakter bicaranya.
                     </p>
-                    
                     <div class="flex gap-4 pt-4">
-                         <div class="text-center">
-                            <span class="block text-xl font-serif font-bold text-burgundy">10+</span>
-                            <span class="text-[7px] tracking-widest uppercase text-gray-400">Years Exp</span>
-                         </div>
+                         <div class="text-center"><span class="block text-xl font-serif font-bold text-burgundy">10+</span><span class="text-[7px] tracking-widest uppercase text-gray-400">Years Exp</span></div>
                          <div class="w-[1px] h-8 bg-gray-200"></div>
-                         <div class="text-center">
-                            <span class="block text-xl font-serif font-bold text-burgundy">CPS</span>
-                            <span class="text-[7px] tracking-widest uppercase text-gray-400">Certified</span>
-                         </div>
+                         <div class="text-center"><span class="block text-xl font-serif font-bold text-burgundy">CPS</span><span class="text-[7px] tracking-widest uppercase text-gray-400">Certified</span></div>
                     </div>
                 </div>
-
                 <div class="md:col-span-4 relative order-1 md:order-2 h-[300px] md:h-[450px]">
                      <div class="absolute inset-0 bg-[#f4f1ea] rounded-t-full transform scale-90 translate-y-4"></div>
                      <img src="https://image2url.com/r2/default/images/1770210102276-20a72ce3-3b99-4d44-9f71-f3294963450e.png" alt="Riza Kamila Portrait" class="absolute bottom-0 left-1/2 -translate-x-1/2 h-full w-auto object-contain drop-shadow-xl hover:scale-105 transition duration-700">
                 </div>
-
                 <div class="md:col-span-4 pt-2 flex flex-col justify-between h-full order-3">
                     <div>
                         <span class="text-burgundy font-bold text-[9px] tracking-[0.2em] uppercase block mb-2">The Philosophy</span>
-                        <p class="text-[10px] md:text-xs leading-loose text-gray-600 mag-text-justify font-serif italic pl-4">
-                            "True eloquence consists of saying all that should be said, and that is all." <br>
-                            <span class="not-italic text-gray-400 text-[8px] mt-1 block font-sans">- La Rochefoucauld</span>
-                        </p>
-                        <p class="text-[10px] md:text-xs leading-loose text-gray-500 mt-4 mag-text-justify">
-                            Kamu nggak perlu jadi orang lain. Cukup jadi versi terbaikmu yang lebih pede dan terstruktur. Siapapun kamu, entah profesional atau kreator, <i>skill</i> komunikasi adalah kunci buat <i>level-up</i> karirmu.
-                        </p>
+                        <p class="text-[10px] md:text-xs leading-loose text-gray-600 mag-text-justify font-serif italic pl-4">"True eloquence consists of saying all that should be said, and that is all."</p>
+                        <p class="text-[10px] md:text-xs leading-loose text-gray-500 mt-4 mag-text-justify">Kamu nggak perlu jadi orang lain. Cukup jadi versi terbaikmu yang lebih pede dan terstruktur.</p>
                     </div>
                 </div>
             </div>
@@ -285,68 +264,50 @@
     <div class="w-full bg-black py-2">
         <div class="text-center text-white text-[8px] tracking-[0.4em] uppercase">Visual Journey</div>
     </div>
-    
     <div id="hero-container">
         <div class="slider-track" id="track">
-            
             <div class="slide active relative overflow-hidden">
                 <div class="absolute inset-0 z-0">
-                    <img src="https://image2url.com/r2/default/images/1770210574677-2c02be1e-2a32-48da-9909-2fbc0c0ba3e3.png" class="w-full h-full object-cover reveal-img" alt="ProfileBackground">
+                    <img src="https://image2url.com/r2/default/images/1770210574677-2c02be1e-2a32-48da-9909-2fbc0c0ba3e3.png" class="w-full h-full object-cover reveal-img">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                 </div>
                 <div class="relative z-10 w-full h-full flex flex-col justify-end items-start text-left px-8 pb-8 reveal-up">
                     <span class="text-[9px] font-bold tracking-[0.3em] text-gold block mb-1 uppercase">On Air Persona</span>
-                    <h1 class="text-3xl font-serif font-bold text-white mb-1 leading-none">
-                        Radio & <br> <span class="italic font-light text-gray-300">Broadcasting.</span>
-                    </h1>
+                    <h1 class="text-3xl font-serif font-bold text-white mb-1 leading-none">Radio & <br> <span class="italic font-light text-gray-300">Broadcasting.</span></h1>
                      <p class="text-[8px] text-gray-300 max-w-xs">Pengalaman sebagai penyiar di Elfara FM & MAS FM.</p>
                 </div>
             </div>
-
             <div class="slide bg-[#fafafa]">
                 <div class="w-full h-full flex flex-row"> 
                     <div class="w-1/2 h-full flex flex-col justify-center px-4 md:px-12 relative z-20">
                          <span class="text-[4rem] md:text-[6rem] text-gray-100 font-serif font-bold absolute -top-4 -left-4 -z-10 select-none">02</span>
                          <span class="text-burgundy text-[7px] font-bold tracking-[0.2em] mb-1 block reveal-up">CREDIBILITY</span>
                          <h2 class="text-lg md:text-[3.5rem] font-serif font-bold mb-2 reveal-up leading-tight text-black">Certified <br> <span class="italic text-burgundy font-light">Pro.</span></h2>
-                         <ul class="space-y-1 text-[7px] md:text-sm text-gray-600 reveal-up font-serif w-full">
-                            <li class="pb-1">★ <b>CPS</b> (Certified Public Speaking)</li>
-                            <li class="pb-1">★ <b>Probest</b> Broadcasting Alumni</li>
-                         </ul>
                     </div>
                     <div class="w-1/2 h-full relative overflow-hidden bg-burgundy">
                         <img src="https://image2url.com/r2/default/images/1769840223244-e0ef08ad-888f-46ae-b6c7-51b018de2345.png" class="object-cover w-full h-full opacity-80 mix-blend-screen reveal-img">
-                        <div class="absolute bottom-4 left-4 text-white text-[8px] font-bold tracking-widest pb-1">NAWARA PRATAMA & PROBEST</div>
                     </div>
                 </div>
             </div>
-
             <div class="slide">
                  <div class="w-full h-full flex flex-row">
                     <div class="w-1/2 h-full flex flex-col justify-center px-4 md:px-12 relative z-20 bg-white">
                          <span class="text-[4rem] md:text-[6rem] text-gray-100 font-serif font-bold absolute -top-4 -left-4 -z-10 select-none">03</span>
                          <span class="text-burgundy text-[7px] font-bold tracking-[0.2em] mb-1 block reveal-up">MENTORING</span>
                          <h2 class="text-lg md:text-[3.5rem] font-serif font-bold mb-2 reveal-up leading-tight text-black">Teach & <br> <span class="italic text-gold font-light">Inspire.</span></h2>
-                         <p class="text-[7px] md:text-sm text-gray-600 reveal-up leading-relaxed">
-                           Pengajar Public Speaking di <b>Thursina IIBS</b> & Content Creator di <b>MA Nurul Huda</b>.
-                         </p>
                     </div>
                     <div class="w-1/2 h-full grid grid-rows-2 gap-1 p-1 bg-cream">
                         <div class="w-full h-full bg-gray-200 overflow-hidden"><img src="https://image2url.com/r2/default/images/1770211420385-cbd8c4cc-3473-400f-89c6-9659bc777418.png" class="object-cover w-full h-full grayscale hover:grayscale-0 transition"></div> <div class="w-full h-full bg-burgundy overflow-hidden relative"><div class="absolute inset-0 flex items-center justify-center text-white font-serif italic text-xl">Thursina</div></div>
                     </div>
                 </div>
             </div>
-
             <div class="slide bg-white">
                 <div class="w-full h-full relative">
                     <img src="https://image2url.com/r2/default/images/1770210102276-20a72ce3-3b99-4d44-9f71-f3294963450e.png" class="w-full h-full object-cover object-top filter sepia-[.3]" style="object-position: top center;">
                     <div class="absolute inset-0 bg-burgundy/20 mix-blend-multiply"></div>
-                    <div class="absolute bottom-10 left-0 w-full text-center text-white">
-                        <h2 class="font-serif text-3xl italic">Let's Speak Up!</h2>
-                    </div>
+                    <div class="absolute bottom-10 left-0 w-full text-center text-white"><h2 class="font-serif text-3xl italic">Let's Speak Up!</h2></div>
                 </div>
             </div>
-
         </div>
         <div class="absolute bottom-2 right-2 z-50 flex gap-1">
             <button onclick="prevSlide()" class="p-1 border border-white/50 text-white rounded-full hover:bg-white hover:text-burgundy transition text-[8px]">←</button>
@@ -356,9 +317,7 @@
 
     <div class="w-full bg-white py-8 flex flex-col items-center justify-center relative z-20 shadow-sm">
          <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-3 font-semibold">Need an MC instead?</p>
-         <a href="https://lynk.id/rizakamilaa" class="btn-gold-pulse w-fit mx-auto px-5 py-2.5 rounded-full font-bold text-[11px] md:text-xs tracking-[0.15em] uppercase shadow-lg active:scale-95 flex justify-center items-center transition-all duration-300">
-             Cek MC Page →
-         </a>
+         <a href="https://lynk.id/rizakamilaa" class="btn-gold-pulse w-fit mx-auto px-5 py-2.5 rounded-full font-bold text-[11px] md:text-xs tracking-[0.15em] uppercase shadow-lg active:scale-95 flex justify-center items-center transition-all duration-300">Cek MC Page →</a>
     </div>
 
     <section id="speaking" class="py-10 md:py-20 bg-white relative overflow-hidden">
@@ -368,54 +327,14 @@
                 <h2 class="text-2xl md:text-5xl font-serif font-bold mt-1 text-left">Why Public<br>Speaking?</h2>
             </div>
         </div>
-
         <div class="maroon-slider-wrapper scroll-section delay-100">
             <div class="maroon-slides-container" id="maroon-slider">
-
-                <div class="maroon-card">
-                    <span class="bg-typo">01</span>
-                    <div class="why-label">CAREER CATALYST</div>
-                    <div class="why-title">Karir Melesat.</div>
-                    <div class="why-desc">
-                        Skill teknis bikin kamu dipanggil interview. Public speaking bikin kamu <b>dapat jabatannya.</b>
-                    </div>
-                </div>
-
-                <div class="maroon-card">
-                    <span class="bg-typo">02</span>
-                    <div class="why-label">CONFIDENCE</div>
-                    <div class="why-title">Own The Room.</div>
-                    <div class="why-desc">
-                        Bukan soal menghilangkan rasa takut, tapi berteman dengannya. Speak loud, <b>stand tall.</b>
-                    </div>
-                </div>
-
-                <div class="maroon-card">
-                    <span class="bg-typo">03</span>
-                    <div class="why-label">INFLUENCE</div>
-                    <div class="why-title">Real Impact.</div>
-                    <div class="why-desc">
-                        Ide brilian cuma jadi angan-angan kalau nggak dikomunikasikan. <b>Suarakan idemu.</b>
-                    </div>
-                </div>
-
-                <div class="maroon-card">
-                    <span class="bg-typo">04</span>
-                    <div class="why-label">AUTHORITY</div>
-                    <div class="why-title">Be The Expert.</div>
-                    <div class="why-desc">
-                        Orang yang berani bicara di depan umum otomatis dianggap <b>pemimpin.</b> Jadilah expert.
-                    </div>
-                </div>
-
+                <div class="maroon-card"><span class="bg-typo">01</span><div class="why-label">CAREER CATALYST</div><div class="why-title">Karir Melesat.</div><div class="why-desc">Skill teknis bikin kamu dipanggil interview. Public speaking bikin kamu <b>dapat jabatannya.</b></div></div>
+                <div class="maroon-card"><span class="bg-typo">02</span><div class="why-label">CONFIDENCE</div><div class="why-title">Own The Room.</div><div class="why-desc">Bukan soal menghilangkan rasa takut, tapi berteman dengannya. Speak loud, <b>stand tall.</b></div></div>
+                <div class="maroon-card"><span class="bg-typo">03</span><div class="why-label">INFLUENCE</div><div class="why-title">Real Impact.</div><div class="why-desc">Ide brilian cuma jadi angan-angan kalau nggak dikomunikasikan. <b>Suarakan idemu.</b></div></div>
+                <div class="maroon-card"><span class="bg-typo">04</span><div class="why-label">AUTHORITY</div><div class="why-title">Be The Expert.</div><div class="why-desc">Orang yang berani bicara di depan umum otomatis dianggap <b>pemimpin.</b> Jadilah expert.</div></div>
             </div>
-
-            <div class="dots-container" id="dots">
-                <div class="dot active"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
+            <div class="dots-container" id="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
         </div>
     </section>
 
@@ -434,8 +353,6 @@
                         <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Bicara Tenang & Pede</li>
                         <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Olah Intonasi</li>
                         <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Teknik Opening</li>
-                        <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Prepare Pitching</li>
-                        <li><i class="fas fa-users" style="color:var(--p-primary)"></i> Free: Komunitas</li>
                     </ul>
                 </div>
                 <a href="https://lynk.id/rizakamilaa/dx1839p27vq6" class="p-btn" target="_blank">Daftar Online</a>
@@ -449,73 +366,88 @@
             <h2 class="text-xl font-serif font-bold mt-1 text-black">Produk Public Speaking</h2>
         </div>
         <div class="product-grid scroll-section delay-100">
-            
             <div class="product-card">
-                <div class="card-image-wrapper">
-                    <img src="https://image2url.com/r2/default/images/1769524097745-920cb59d-dc31-4cb6-a092-64e4a0fa5360.png" alt="Session" class="card-image">
-                </div>
+                <div class="card-image-wrapper"><img src="https://image2url.com/r2/default/images/1769524097745-920cb59d-dc31-4cb6-a092-64e4a0fa5360.png" class="card-image"></div>
                 <div class="card-content">
-                    <div>
-                        <div class="product-name">Public Speaking Fundamentals</div>
-                        <div class="price-container-grid">
-                            <span class="original-price-grid">Rp 1.290.000</span>
-                            <span class="discount-price-grid">Rp 800.000</span>
-                        </div>
-                    </div>
+                    <div><div class="product-name">Public Speaking Fundamentals</div><div class="price-container-grid"><span class="original-price-grid">Rp 1.290.000</span><span class="discount-price-grid">Rp 800.000</span></div></div>
                     <a href="https://lynk.id/rizakamilaa/mqr9245mv0x0" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
                 </div>
             </div>
-
             <div class="product-card coming-soon">
-                <div class="card-image-wrapper">
-                    <img src="https://image2url.com/r2/default/images/1769581967456-3292e862-a7c4-47b7-b273-63d43c931980.png" alt="Review" class="card-image">
-                    <div class="cs-overlay">Coming Soon</div>
-                </div>
+                <div class="card-image-wrapper"><img src="https://image2url.com/r2/default/images/1769581967456-3292e862-a7c4-47b7-b273-63d43c931980.png" class="card-image"><div class="cs-overlay">Coming Soon</div></div>
                 <div class="card-content">
-                    <div>
-                        <div class="product-name">Confident Speaking Intensive</div>
-                        <div class="price-container-grid">
-                            <span class="original-price-grid">Rp 1.270.000</span>
-                            <span class="discount-price-grid">Rp 800.000</span>
-                        </div>
-                    </div>
+                    <div><div class="product-name">Confident Speaking Intensive</div><div class="price-container-grid"><span class="original-price-grid">Rp 1.270.000</span><span class="discount-price-grid">Rp 800.000</span></div></div>
                     <button class="btn-coming-soon">Soon</button>
                 </div>
             </div>
-
              <div class="product-card coming-soon">
-                <div class="card-image-wrapper">
-                    <img src="https://image2url.com/r2/default/images/1769582000373-5075cbd0-bea0-42fc-9430-c8805fcc9be2.png" alt="Ebook" class="card-image">
-                    <div class="cs-overlay">Coming Soon</div>
-                </div>
+                <div class="card-image-wrapper"><img src="https://image2url.com/r2/default/images/1769582000373-5075cbd0-bea0-42fc-9430-c8805fcc9be2.png" class="card-image"><div class="cs-overlay">Coming Soon</div></div>
                 <div class="card-content">
-                    <div>
-                        <div class="product-name">Professional Presentation Mastery</div>
-                        <div class="price-container-grid">
-                            <span class="original-price-grid">Rp 5.290.000</span>
-                            <span class="discount-price-grid">Rp 1.000.000</span>
-                        </div>
-                    </div>
+                    <div><div class="product-name">Professional Presentation Mastery</div><div class="price-container-grid"><span class="original-price-grid">Rp 5.290.000</span><span class="discount-price-grid">Rp 1.000.000</span></div></div>
                     <button class="btn-coming-soon">Soon</button>
                 </div>
             </div>
-
             <div class="product-card coming-soon">
-                <div class="card-image-wrapper">
-                    <img src="https://image2url.com/r2/default/images/1769582026207-a1f34c8b-6dd2-45c0-bd66-c33a5fe5bc8f.png" alt="Template" class="card-image">
-                    <div class="cs-overlay">Coming Soon</div>
-                </div>
+                <div class="card-image-wrapper"><img src="https://image2url.com/r2/default/images/1769582026207-a1f34c8b-6dd2-45c0-bd66-c33a5fe5bc8f.png" class="card-image"><div class="cs-overlay">Coming Soon</div></div>
                 <div class="card-content">
-                    <div>
-                        <div class="product-name">Camera Speaking Professional</div>
-                        <div class="price-container-grid">
-                            <span class="original-price-grid">Rp 5.290.000</span>
-                            <span class="discount-price-grid">Rp 1.000.000</span>
-                        </div>
-                    </div>
+                    <div><div class="product-name">Camera Speaking Professional</div><div class="price-container-grid"><span class="original-price-grid">Rp 5.290.000</span><span class="discount-price-grid">Rp 1.000.000</span></div></div>
                     <button class="btn-coming-soon">Soon</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="bg-white py-12 relative z-20">
+        <div class="text-center mb-10 scroll-section">
+            <span class="text-burgundy font-bold text-[8px] tracking-[0.3em] uppercase">Library</span>
+            <h2 class="text-xl font-serif font-bold mt-1 text-black">Curated Reads</h2>
+        </div>
+        <div class="max-w-4xl mx-auto px-6 scroll-section">
+             <div class="grid grid-cols-3 gap-x-4 gap-y-8">
+
+                 <a href="https://drive.google.com/file/d/1BgfTwmC_0KqOGn3AKpuLU3fq3GCN_HiF/view?usp=sharing" target="_blank" class="group relative flex flex-col items-center justify-end">
+                     <img src="https://image2url.com/r2/default/images/1770364951664-9f00291f-3355-4546-bbf7-ea76eba89545.png" class="w-20 md:w-28 aspect-[2/3] object-cover rounded-sm shadow-[5px_5px_15px_rgba(0,0,0,0.15)] z-10 transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl">
+                     <div class="w-full h-3 bg-[#e8e1d5] mt-0 rounded-sm shadow-md relative z-0 border-t border-white/50">
+                        <div class="absolute w-full h-full bg-black/5 bottom-[-4px] blur-[2px] rounded-full"></div>
+                     </div>
+                 </a>
+
+                 <a href="https://drive.google.com/file/d/18X3-zKLK4UR4rIg3PR5tNhykoWGvUhN1/view?usp=sharing" target="_blank" class="group relative flex flex-col items-center justify-end">
+                     <img src="https://image2url.com/r2/default/images/1770365569299-6d54f92a-4b19-4753-9d8d-66817d0737f8.png" class="w-20 md:w-28 aspect-[2/3] object-cover rounded-sm shadow-[5px_5px_15px_rgba(0,0,0,0.15)] z-10 transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl">
+                     <div class="w-full h-3 bg-[#e8e1d5] mt-0 rounded-sm shadow-md relative z-0 border-t border-white/50">
+                        <div class="absolute w-full h-full bg-black/5 bottom-[-4px] blur-[2px] rounded-full"></div>
+                     </div>
+                 </a>
+
+                 <a href="https://drive.google.com/file/d/1_3f6pWXF3c1ltF-dDn2wF34idBzdt9y3/view?usp=sharing" target="_blank" class="group relative flex flex-col items-center justify-end">
+                     <img src="https://image2url.com/r2/default/images/1770365621276-a66e423d-71d0-420a-9a70-59700587d944.png" class="w-20 md:w-28 aspect-[2/3] object-cover rounded-sm shadow-[5px_5px_15px_rgba(0,0,0,0.15)] z-10 transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl">
+                     <div class="w-full h-3 bg-[#e8e1d5] mt-0 rounded-sm shadow-md relative z-0 border-t border-white/50">
+                        <div class="absolute w-full h-full bg-black/5 bottom-[-4px] blur-[2px] rounded-full"></div>
+                     </div>
+                 </a>
+
+                 <a href="https://drive.google.com/file/d/1WurCLYlBZRMxBxcJ9j6nKYdQGAFkluyA/view?usp=sharing" target="_blank" class="group relative flex flex-col items-center justify-end">
+                     <img src="https://image2url.com/r2/default/images/1770365675881-6ba8ac23-71fc-4743-9f22-fe8ecf575c3c.png" class="w-20 md:w-28 aspect-[2/3] object-cover rounded-sm shadow-[5px_5px_15px_rgba(0,0,0,0.15)] z-10 transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl">
+                     <div class="w-full h-3 bg-[#e8e1d5] mt-0 rounded-sm shadow-md relative z-0 border-t border-white/50">
+                        <div class="absolute w-full h-full bg-black/5 bottom-[-4px] blur-[2px] rounded-full"></div>
+                     </div>
+                 </a>
+
+                 <a href="https://drive.google.com/file/d/1WkIJYtmQcxmVaCdxgt6Ue6bOKJVNohiG/view?usp=sharing" target="_blank" class="group relative flex flex-col items-center justify-end">
+                     <img src="https://image2url.com/r2/default/images/1770365716821-eb64bda7-2cc7-458b-b505-d713a7739295.png" class="w-20 md:w-28 aspect-[2/3] object-cover rounded-sm shadow-[5px_5px_15px_rgba(0,0,0,0.15)] z-10 transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl">
+                     <div class="w-full h-3 bg-[#e8e1d5] mt-0 rounded-sm shadow-md relative z-0 border-t border-white/50">
+                        <div class="absolute w-full h-full bg-black/5 bottom-[-4px] blur-[2px] rounded-full"></div>
+                     </div>
+                 </a>
+
+                  <a href="https://drive.google.com/file/d/1N3mmTZ0_VqoDsuX955_G-LR5_wNVLjzU/view?usp=sharing" target="_blank" class="group relative flex flex-col items-center justify-end">
+                     <img src="https://image2url.com/r2/default/images/1770365790560-b174a059-2ca3-4604-b0e3-8609398261fe.png" class="w-20 md:w-28 aspect-[2/3] object-cover rounded-sm shadow-[5px_5px_15px_rgba(0,0,0,0.15)] z-10 transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl">
+                     <div class="w-full h-3 bg-[#e8e1d5] mt-0 rounded-sm shadow-md relative z-0 border-t border-white/50">
+                        <div class="absolute w-full h-full bg-black/5 bottom-[-4px] blur-[2px] rounded-full"></div>
+                     </div>
+                 </a>
+
+             </div>
         </div>
     </div>
     
@@ -525,68 +457,24 @@
             <h2 class="text-xl font-serif font-bold mt-1 text-black">Latest Reels</h2>
         </div>
         <div class="flex overflow-x-auto gap-3 px-5 pb-4 no-scrollbar items-start" style="scroll-snap-type: x mandatory;">
-            
-            <a href="https://www.instagram.com/reel/DTF5uvhEdDc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center shadow-lg">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
-                    <source src="https://image2url.com/r2/default/videos/1769405263930-a1a20b88-c020-4458-93f5-088182529f4d.mp4" type="video/mp4">
-                </video>
-                <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[6px] md:text-[9px] font-bold tracking-widest text-burgundy shadow-md z-20">JURI MC CILIK</div>
-            </a>
-
-            <a href="https://www.instagram.com/reel/C7VyKD1PzHD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center shadow-lg">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
-                    <source src="https://image2url.com/r2/default/videos/1769405349851-134c311a-70b1-4de4-9ab4-dc023cfe2809.mp4" type="video/mp4">
-                </video>
-                <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[6px] md:text-[9px] font-bold tracking-widest text-burgundy shadow-md z-20">TIPS KOMUNIKASI</div>
-            </a>
-
-            <a href="https://www.instagram.com/reel/DKwpBt3z--K/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center shadow-lg">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
-                    <source src="https://image2url.com/r2/default/videos/1769405802982-7d86fe8a-10ed-4bbe-8460-7155d3113dcb.mp4" type="video/mp4">
-                </video>
-                <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[6px] md:text-[9px] font-bold tracking-widest text-burgundy shadow-md z-20">PUBLIC SPEAKING</div>
-            </a>
-
-             <a href="https://www.instagram.com/reel/DMaJwPTzZfY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center shadow-lg">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
-                    <source src="https://image2url.com/r2/default/videos/1769407873903-1dfeb1a9-0a54-482b-9c8d-1e8507fbcbac.mp4" type="video/mp4">
-                </video>
-                <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[6px] md:text-[9px] font-bold tracking-widest text-burgundy shadow-md z-20">LECTURE</div>
-            </a>
-            
+            <a href="https://www.instagram.com/reel/DTF5uvhEdDc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center shadow-lg"><video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><source src="https://image2url.com/r2/default/videos/1769405263930-a1a20b88-c020-4458-93f5-088182529f4d.mp4" type="video/mp4"></video></a>
+            <a href="https://www.instagram.com/reel/C7VyKD1PzHD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center shadow-lg"><video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><source src="https://image2url.com/r2/default/videos/1769405349851-134c311a-70b1-4de4-9ab4-dc023cfe2809.mp4" type="video/mp4"></video></a>
+            <a href="https://www.instagram.com/reel/DKwpBt3z--K/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center shadow-lg"><video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><source src="https://image2url.com/r2/default/videos/1769405802982-7d86fe8a-10ed-4bbe-8460-7155d3113dcb.mp4" type="video/mp4"></video></a>
+             <a href="https://www.instagram.com/reel/DMaJwPTzZfY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center shadow-lg"><video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><source src="https://image2url.com/r2/default/videos/1769407873903-1dfeb1a9-0a54-482b-9c8d-1e8507fbcbac.mp4" type="video/mp4"></video></a>
         </div>
-        
-        <div class="flex justify-center mt-6 gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-burgundy opacity-100"></div>
-            <div class="w-1.5 h-1.5 rounded-full bg-burgundy opacity-50"></div>
-        </div>
+        <div class="flex justify-center mt-6 gap-2"><div class="w-1.5 h-1.5 rounded-full bg-burgundy opacity-100"></div><div class="w-1.5 h-1.5 rounded-full bg-burgundy opacity-50"></div></div>
     </div>
 
     <footer class="bg-white py-10 md:py-20 text-center border-t border-gray-200 scroll-section px-4">
         <h3 class="text-[9px] font-bold tracking-[0.3em] text-gray-400 mb-4 uppercase">Socials</h3>
         <h1 class="text-2xl md:text-5xl font-serif font-bold text-burgundy mb-8">Let's Connect.</h1>
-
         <div class="flex justify-center items-center gap-6 md:gap-8">
-            <a href="https://wa.link/v8l6mq" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-white transition-all duration-300">
-                <i class="fab fa-whatsapp text-lg"></i>
-            </a>
-
-            <a href="https://instagram.com/rizakamila" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-white transition-all duration-300">
-                <i class="fab fa-instagram text-lg"></i>
-            </a>
-
-            <a href="https://tiktok.com/@rizakamila_" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-white transition-all duration-300">
-                <i class="fab fa-tiktok text-lg"></i>
-            </a>
-
-            <a href="https://youtube.com/@rizakamila" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-white transition-all duration-300">
-                <i class="fab fa-youtube text-lg"></i>
-            </a>
+            <a href="https://wa.link/v8l6mq" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-white transition-all duration-300"><i class="fab fa-whatsapp text-lg"></i></a>
+            <a href="https://instagram.com/rizakamila" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-white transition-all duration-300"><i class="fab fa-instagram text-lg"></i></a>
+            <a href="https://tiktok.com/@rizakamila_" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-white transition-all duration-300"><i class="fab fa-tiktok text-lg"></i></a>
+            <a href="https://youtube.com/@rizakamila" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-white transition-all duration-300"><i class="fab fa-youtube text-lg"></i></a>
         </div>
-
-        <div class="mt-8 text-[8px] text-gray-400 tracking-wider">
-            © 2026 RIZA IMROATUL KAMILA • ALL RIGHTS RESERVED
-        </div>
+        <div class="mt-8 text-[8px] text-gray-400 tracking-wider">© 2026 RIZA IMROATUL KAMILA • ALL RIGHTS RESERVED</div>
     </footer>
 
     <script>
